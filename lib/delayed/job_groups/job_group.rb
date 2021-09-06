@@ -32,6 +32,7 @@ module Delayed
       end
 
       def enqueue(job, options = {})
+        binding.pry
         options = options.merge(job_group_id: id)
         options[:blocked] = blocked?
         Delayed::Job.enqueue(job, options)
